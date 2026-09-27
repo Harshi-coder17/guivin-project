@@ -1,4 +1,4 @@
-# GUIVIN — Gujarat Unified Intelligent Video Intelligence Network
+# GUIVIN - Gujarat Unified Intelligent Video Intelligence Network
 
 > **From camera feeds to actionable investigations.**
 >
@@ -14,18 +14,18 @@ GUIVIN brings camera monitoring, AI-assisted vehicle analysis and investigation 
 
 ## Features
 
-- **📷 GIS Camera Registry** — Search and onboard cameras, inspect worker health and display declared coverage on a Leaflet map. Cameras without verified coordinates remain in the inventory.
-- **🔍 AI-Assisted ANPR** — YOLOv8n vehicle detection, PaddleOCR/FastALPR recognition, multi-line plate assembly, checks for supported Indian registration formats, and repeated-observation voting.
-- **📡 Live Monitor** — Authorized RTSP analysis, recorded-video processing, annotated previews and per-camera Start/Stop controls.
-- **🌐 Sentinel Integration** — Camera Grid authentication, catalogue import and individual connection results for successful and failed workers.
-- **⚠️ Alerts & Watchlists** — Representative watchlist matching, evidence-linked alerts and independent supervisor review for high-severity dismissals.
-- **🚔 VAHAN / CCTNS Integration (Mock)** — Recognized plates are checked against fictional records to demonstrate stolen/wanted vehicle alerts. This does not connect to government databases or issue PUC alerts.
-- **📊 Adaptive Camera Intelligence** — Versioned statistical baselines with coverage gates, approval and rollback, alongside opt-in region, tripwire, crowd and loitering rules.
-- **🚗 Vehicle Journeys** — Time-filtered sightings across cameras, pagination and topology-based correlation with uncertainty indicators.
-- **🗂️ Case Management** — Link alerts, assign supervisors, escalate investigations and grant scoped judiciary access.
-- **🔗 Evidence Integrity** — Captured frames, sampled pre/post-event clips and a local SHA-256 hash chain with verification and download controls.
-- **🔐 Role-Based Access** — Seven operator and oversight roles with department, camera and case-level permissions.
-- **📄 Reports** — Incident CSV/PDF exports, detection records and offline evaluation tools.
+- **📷 GIS Camera Registry** - Search and onboard cameras, inspect worker health and display declared coverage on a Leaflet map. Cameras without verified coordinates remain in the inventory.
+- **🔍 AI-Assisted ANPR** - YOLOv8n vehicle detection, PaddleOCR/FastALPR recognition, multi-line plate assembly, checks for supported Indian registration formats, and repeated-observation voting.
+- **📡 Live Monitor** - Authorized RTSP analysis, recorded-video processing, annotated previews and per-camera Start/Stop controls.
+- **🌐 Sentinel Integration** - Camera Grid authentication, catalogue import and individual connection results for successful and failed workers.
+- **⚠️ Alerts & Watchlists** - Representative watchlist matching, evidence-linked alerts and independent supervisor review for high-severity dismissals.
+- **🚔 VAHAN / CCTNS Integration (Mock)** - Recognized plates are checked against fictional records to demonstrate stolen/wanted vehicle alerts. This does not connect to government databases or issue PUC alerts.
+- **📊 Adaptive Camera Intelligence** - Versioned statistical baselines with coverage gates, approval and rollback, alongside opt-in region, tripwire, crowd and loitering rules.
+- **🚗 Vehicle Journeys** - Time-filtered sightings across cameras, pagination and topology-based correlation with uncertainty indicators.
+- **🗂️ Case Management** - Link alerts, assign supervisors, escalate investigations and grant scoped judiciary access.
+- **🔗 Evidence Integrity** - Captured frames, sampled pre/post-event clips and a local SHA-256 hash chain with verification and download controls.
+- **🔐 Role-Based Access** - Seven operator and oversight roles with department, camera and case-level permissions.
+- **📄 Reports** - Incident CSV/PDF exports, detection records and offline evaluation tools.
 
 ## Architecture
 
@@ -50,20 +50,20 @@ FastAPI connects the dashboard to capture workers, analytics and investigation w
 
 ### Before you start
 
-Install **Git**, **Python 3.11 or newer**, and **Docker Desktop**. Start Docker Desktop with **Linux containers**. Python runs the setup helper; AI dependencies run inside Docker, so you do not need to install PyTorch or PaddleOCR on Windows.
+Install **Git**, **Python 3.11 or newer**, and **Docker Desktop**. On Windows, start Docker Desktop with **Linux containers** (Mac uses Linux containers by default, so no extra setup is needed there). Python runs the setup helper; AI dependencies run inside Docker, so you do not need to install PyTorch or PaddleOCR on Windows or Mac.
 
 Initial setup needs internet access and several GB of free disk space for dependencies and models. Downloads and builds can take a while; later starts reuse them.
 
 ### 1. Download the project
 
-These steps target Windows with Docker Desktop. Open PowerShell, then run:
+These steps target Windows and Mac with Docker Desktop. On Windows, open PowerShell; on Mac, open Terminal. The command is the same either way:
 
 ```bash
 git clone https://github.com/Harshi-coder17/guivin-project.git
 cd guivin-project
 ```
 
-Already have the project? Open a terminal inside its **guivin-project** folder instead.
+Already have the project? Open a terminal (PowerShell on Windows, Terminal on Mac) inside its **guivin-project** folder instead.
 
 ### 2. Prepare Docker, models and your account
 
@@ -71,7 +71,7 @@ Already have the project? Open a terminal inside its **guivin-project** folder i
 python tools/setup_docker.py
 ```
 
-Use `python3` if that is your Python command. The helper builds the PaddleOCR/FastALPR image, downloads and checks the models, and creates your local account. It preserves existing credentials and model bundles when rerun. It does not start or restart the application.
+This command is the same on Windows and Mac. Use `python3` if that is your Python command (this is typically the case on Mac). The helper builds the PaddleOCR/FastALPR image, downloads and checks the models, and creates your local account. It preserves existing credentials and model bundles when rerun. It does not start or restart the application.
 
 Wait for **Setup complete**. If a step fails, resolve the displayed error and rerun it. Model and account files remain local and ignored by Git.
 
@@ -81,7 +81,7 @@ Wait for **Setup complete**. If a step fails, resolve the displayed error and re
 docker compose up -d
 ```
 
-Open **http://localhost:8001**. Sign in with:
+This command is the same on Windows and Mac. Open **http://localhost:8001**. Sign in with:
 
 - **Username:** `local-admin`
 - **Password:** open `tmp/docker/admin-password.txt` locally and copy its contents into the login form.
@@ -94,7 +94,7 @@ Open **Live Monitor → Connect Sentinel**, enter your authorized Camera Grid cr
 
 ### Everyday commands
 
-Run these from the project folder:
+Run these from the project folder (same on Windows and Mac):
 
 ```bash
 # Start again after stopping
@@ -125,11 +125,11 @@ The tested integration uses **RTSP over TCP**. Sentinel sandbox recordings are l
 
 ## Operator Workflow
 
-1. **Register** — Import or onboard cameras and confirm available location metadata.
-2. **Monitor** — Start authorized feeds and inspect capture/inference health.
-3. **Review** — Open alerts, examine frames and sampled clips, and verify evidence integrity.
-4. **Investigate** — Search plate sightings, inspect journey uncertainty and link relevant alerts to a case.
-5. **Coordinate** — Assign scoped reviewers, escalate cases and export reports.
+1. **Register** - Import or onboard cameras and confirm available location metadata.
+2. **Monitor** - Start authorized feeds and inspect capture/inference health.
+3. **Review** - Open alerts, examine frames and sampled clips, and verify evidence integrity.
+4. **Investigate** - Search plate sightings, inspect journey uncertainty and link relevant alerts to a case.
+5. **Coordinate** - Assign scoped reviewers, escalate cases and export reports.
 
 Supported roles: **Field Operator, Sector Supervisor, Department Head, SCRB Administrator, Technical Administrator, Auditor and Judiciary**. Access is scoped to the account's permitted resources.
 
@@ -190,17 +190,17 @@ Interactive API documentation is available at **http://localhost:8001/docs** whe
 
 Selected endpoints:
 
-- **Registry:** `GET /api/cameras`, `GET /api/cameras/geojson`, `POST /api/cameras/bulk` — List, map and import cameras.
-- **Monitoring:** `POST /api/stream/start`, `POST /api/stream/{camera_id}/stop`, `GET /api/stream/{camera_id}/health` — Control processing and inspect camera health.
-- **Sentinel:** `POST /api/sentinel/connect` — Authenticate, import selected cameras and request worker startup.
-- **Alerts:** `GET /api/alerts`, `POST /api/alerts/{alert_id}/acknowledge` — Retrieve and acknowledge alerts.
-- **Journeys:** `GET /api/journey/{plate}` — Search time-filtered vehicle sightings.
-- **Evidence:** `GET /api/evidence/{alert_id}/clip/preview`, `GET /api/evidence/{alert_id}/clip/verify` — Preview a sampled clip and verify its integrity.
-- **Ledger:** `GET /api/blockchain/ledger`, `POST /api/blockchain/verify` — Inspect and verify the local evidence chain.
-- **ACI:** `GET /api/aci/{camera_id}/profiles`, `POST /api/aci/{camera_id}/profiles/{profile_id}/approve` — Inspect baseline versions and approve a candidate.
-- **Reports:** `GET /api/reports/csv`, `GET /api/reports/pdf`, `GET /api/reports/detections` — Export incidents and detection records.
-- **System:** `GET /api/health` — Inspect service and model readiness.
-- **Observability:** `GET /metrics` — Export active-worker and application-version metrics; authentication and role restrictions apply.
+- **Registry:** `GET /api/cameras`, `GET /api/cameras/geojson`, `POST /api/cameras/bulk` - List, map and import cameras.
+- **Monitoring:** `POST /api/stream/start`, `POST /api/stream/{camera_id}/stop`, `GET /api/stream/{camera_id}/health` - Control processing and inspect camera health.
+- **Sentinel:** `POST /api/sentinel/connect` - Authenticate, import selected cameras and request worker startup.
+- **Alerts:** `GET /api/alerts`, `POST /api/alerts/{alert_id}/acknowledge` - Retrieve and acknowledge alerts.
+- **Journeys:** `GET /api/journey/{plate}` - Search time-filtered vehicle sightings.
+- **Evidence:** `GET /api/evidence/{alert_id}/clip/preview`, `GET /api/evidence/{alert_id}/clip/verify` - Preview a sampled clip and verify its integrity.
+- **Ledger:** `GET /api/blockchain/ledger`, `POST /api/blockchain/verify` - Inspect and verify the local evidence chain.
+- **ACI:** `GET /api/aci/{camera_id}/profiles`, `POST /api/aci/{camera_id}/profiles/{profile_id}/approve` - Inspect baseline versions and approve a candidate.
+- **Reports:** `GET /api/reports/csv`, `GET /api/reports/pdf`, `GET /api/reports/detections` - Export incidents and detection records.
+- **System:** `GET /api/health` - Inspect service and model readiness.
+- **Observability:** `GET /metrics` - Export active-worker and application-version metrics; authentication and role restrictions apply.
 
 Protected endpoints enforce account permissions and resource scope. See the interactive API for request bodies, filters and response schemas.
 
@@ -219,10 +219,10 @@ The project includes offline OCR comparisons, evaluation metrics and backup veri
 
 ## Documentation
 
-- [Deployment guide](deploy/README.md) — Docker setup, model preparation and accounts.
-- [Interactive API](http://localhost:8001/docs) — Explore endpoints with the Docker app running.
-- [Tests](tests/) — Regression coverage for backend behavior and connection handling.
-- [Security policy](SECURITY.md) — Security reporting information.
+- [Deployment guide](deploy/README.md) - Docker setup, model preparation and accounts.
+- [Interactive API](http://localhost:8001/docs) - Explore endpoints with the Docker app running.
+- [Tests](tests/) - Regression coverage for backend behavior and connection handling.
+- [Security policy](SECURITY.md) - Security reporting information.
 
 ## Project Status
 
@@ -234,4 +234,4 @@ The next phase focuses on stronger plate recognition across varied road conditio
 
 ## License
 
-[MIT](LICENSE) — built for Sentinel Gujarat 2026. Third-party models, libraries and evaluation datasets retain their own licenses.
+[MIT](LICENSE) - built for Sentinel Gujarat 2026. Third-party models, libraries and evaluation datasets retain their own licenses.
