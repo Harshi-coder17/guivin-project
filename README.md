@@ -59,7 +59,7 @@ Initial setup needs internet access and several GB of free disk space for depend
 These steps target Windows with Docker Desktop. Open PowerShell, then run:
 
 ```bash
-git clone https://github.com/armaan-1207/guivin-project.git
+git clone https://github.com/Harshi-coder17/guivin-project.git
 cd guivin-project
 ```
 
